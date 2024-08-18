@@ -32,3 +32,14 @@
   background-color: #f4f4f4;
   text-align: left;
 }
+
+.nicknameForm {
+  margin: 5px 0; /* 上下の余白を小さくする */
+  padding: 5px 0; /* 上下のパディングを小さくする */
+  height: auto;
+}
+
+.nicknameForm p {
+  margin: 0; /* 上下のマージンを削除 */
+  padding: 0; /* 上下のパディングを削除 */
+}

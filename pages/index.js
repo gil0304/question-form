@@ -27,13 +27,23 @@ export default function Home() {
 
   const handleClick = async () => {
     const timestamp = moment().tz("Asia/Tokyo").format("YYYY-MM-DD HH:mm:ss");
-    await axios.post("/api/save", {
-      nickname,
-      teamNumber,
-      category,
-      timestamp,
-    });
-    alert("データが送信されました。");
+
+    // 確認ダイアログの表示
+    const confirmed = window.confirm("この内容で送信しますか？");
+    if (confirmed) {
+      try {
+        await axios.post("/api/save", {
+          nickname,
+          teamNumber,
+          category,
+          timestamp,
+        });
+        alert("データが送信されました。");
+      } catch (error) {
+        console.error("データの送信中にエラーが発生しました:", error);
+        alert("データの送信中にエラーが発生しました。");
+      }
+    }
   };
 
   if (isSubmitted) {
